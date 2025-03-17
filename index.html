@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('bg.jpg') no-repeat center center/cover;
+        }
+        .login-container {
+            background: url('yy.jpg') no-repeat center center/cover;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            position: relative;
+        }
+        .input-container {
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background: white;
+            position: relative;
+            z-index: 1;
+            color: black;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #af5b4c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        h2 {
+            background: white;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-container">
+            <input type="text" id="name" placeholder="Masukkan Nama">
+        </div>
+        <div class="input-container">
+            <input type="email" id="email" placeholder="Masukkan Email">
+        </div>
+        <button onclick="login()">Login</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+
+    <script>
+        function login() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+
+            if (name.trim() !== "" && email.trim() !== "") {
+                localStorage.setItem('userName', name);
+                localStorage.setItem('userEmail', email);
+                window.location.href = 'man_utd_cv.html'; 
+            } else {
+                document.getElementById('error').innerText = 'Nama dan Email harus diisi!';
+            }
+        }
+    </script>
+</body>
+</html>
